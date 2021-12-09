@@ -54,6 +54,7 @@ install: all
 	chmod 644 $(DESTDIR)$(MANPREFIX)/man1/stest.1
 
 uninstall:
+	rm -f config.h
 	rm -f $(DESTDIR)$(PREFIX)/bin/dmenu\
 		$(DESTDIR)$(PREFIX)/bin/dmenu_path\
 		$(DESTDIR)$(PREFIX)/bin/dmenu_run\
