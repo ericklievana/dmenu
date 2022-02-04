@@ -1,2 +1,2 @@
 #!/bin/sh
-dmenu_path | dmenu "$@" | ${SHELL:-"/bin/sh"} &
+dmenu_path | dmenu -c -bw 3 -l 10 -p "Execute:" "$@" | ${SHELL:-"/bin/sh"} &
