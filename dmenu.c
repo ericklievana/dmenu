@@ -135,6 +135,7 @@ cistrstr(const char *h, const char *n)
 static int
 drawitem(struct item *item, int x, int y, int w)
 {
+  int r, offset;
 	if (item == sel)
 		drw_setscheme(drw, scheme[SchemeSel]);
 	else if (item->out)
@@ -142,7 +143,14 @@ drawitem(struct item *item, int x, int y, int w)
 	else
 		drw_setscheme(drw, scheme[SchemeNorm]);
 
-	return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
+  offset = (lines > 0) ? (w - (TEXTW(item->text) - lrpad)) / 2 : lrpad / 2;
+  if (centered_text)
+    r = drw_text(drw, x, y, w, bh, offset, item->text, 0);
+  else
+    r = drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
+
+  return r;
+  //return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
 }
 
 static void
@@ -789,6 +797,8 @@ main(int argc, char *argv[])
 			topbar = 0;
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
+    else if (!strcmp(argv[i], "-ct"))
+        centered_text = 1;
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
