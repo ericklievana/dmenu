@@ -8,7 +8,8 @@ static int centered = 1;                    /* -c option; centers dmenu on scree
 static int min_width = 500;                    /* minimum width when centered */
 static const float menu_height_ratio = 4.0f;  /* This is the ratio used in the original calculation */
 static const char *fonts[] = {
-	"monospace:size=10"
+	"Times New Code:size=24",
+  "Symbols Nerd Font Mono:size=24",
 };
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
 static const char *colors[SchemeLast][2] = {
