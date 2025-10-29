@@ -822,7 +822,7 @@ main(int argc, char *argv[])
 		else if (!strcmp(argv[i], "-c"))   /* centers dmenu on screen */
 			centered = 1;
     else if (!strcmp(argv[i], "-ct"))  /* Centers text in each cell */
-        centered_text = 1;
+      centered_text = 1;
 		else if (!strcmp(argv[i], "-i")) { /* case-insensitive item matching */
 			fstrncmp = strncasecmp;
 			fstrstr = cistrstr;
