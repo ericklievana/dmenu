@@ -23,7 +23,8 @@ static char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
 	[SchemeNorm] = { normfgcolor, normbgcolor },
 	[SchemeSel]  = { selfgcolor,  selbgcolor  },
-	[SchemeOut]  = { "#000000",   "#00ffff" },
+	[SchemeOut]  = { selfgcolor,  selbgcolor },
+	[SchemePrompt] = { normfgcolor, normbgcolor },
 };
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines      = 0;
